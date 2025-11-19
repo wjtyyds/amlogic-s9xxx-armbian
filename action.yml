@@ -1,5 +1,5 @@
 name: "Rebuild Armbian and Kernel"
-author: "https://github.com/ophub/amlogic-s9xxx-armbian"
+author: "https://github.com/wjtyyds/amlogic-s9xxx-armbian"
 description: "Support Amlogic, Rockchip and Allwinner boxes."
 inputs:
   # Select build target
@@ -19,7 +19,7 @@ inputs:
   kernel_repo:
     description: "Set kernel repository."
     required: false
-    default: "ophub/kernel"
+    default: "wjtyyds/kernel"
   kernel_usage:
     description: "Set the tags of the stable kernel."
     required: false
@@ -27,11 +27,11 @@ inputs:
   armbian_kernel:
     description: "Set kernel version."
     required: false
-    default: "6.1.y_6.12.y"
+    default: "6.12.57"
   auto_kernel:
     description: "Auto use the latest kernel."
     required: false
-    default: "true"
+    default: "false"
   armbian_fstype:
     description: "Set armbian rootfs type: ext4 / btrfs"
     required: false
@@ -43,7 +43,7 @@ inputs:
   builder_name:
     description: "Set Armbian builder signature."
     required: false
-    default: ""
+    default: "wjtyyds"
   # For compile kernel -----
   kernel_source:
     description: "Select the kernel source code"
@@ -52,11 +52,11 @@ inputs:
   kernel_version:
     description: "Select kernel version"
     required: false
-    default: "6.1.y_6.12.y"
+    default: "6.12.57"
   kernel_auto:
     description: "Auto use the latest kernel"
     required: false
-    default: "true"
+    default: "false"
   kernel_package:
     description: "Select compile package list"
     required: false
@@ -64,7 +64,7 @@ inputs:
   kernel_sign:
     description: "Set the kernel custom signature"
     required: false
-    default: "-ophub"
+    default: "-wjtyyds"
   kernel_toolchain:
     description: "Select the compilation toolchain"
     required: false
@@ -238,7 +238,7 @@ runs:
             # You can use a Docker container on an arm64 server to compile the kernel natively with Armbian.
             # Recommended Docker repository: https://hub.docker.com/u/ophub
             # Set the Docker container name and script path
-            docker_container="armbian-ophub"
+            docker_container="armbian-wjtyyds"
             docker_script="/usr/sbin/armbian-kernel"
             echo -e "Check the system runtime environment."
             if command -v docker >/dev/null 2>&1; then
