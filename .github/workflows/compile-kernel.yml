@@ -17,6 +17,7 @@ on:
         type: choice
         options:
           - unifreq
+          - ophub
       kernel_version:
         description: "Select kernel version"
         required: false
