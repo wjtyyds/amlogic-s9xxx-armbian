@@ -201,7 +201,7 @@ jobs:
           kernel_toolchain: ${{ inputs.kernel_toolchain }}
           ccache_clear: ${{ inputs.ccache_clear }}
           docker_hostpath: /builder
-          kernel_patch: my-patches  # 告诉脚本：去我新建的这个目录里拿补丁
+          docker_image: ophub/armbian-${{ inputs.docker_image }}:arm64
           auto_patch: true          # 告诉脚本：拿到补丁后，强制给我打上去
 
       - name: Upload Kernel to Release
