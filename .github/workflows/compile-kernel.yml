@@ -82,8 +82,7 @@ on:
         default: "-ophub"
         type: choice
         options:
-          - -ophub
-          - -yourname
+          - -wjtyyds
 
 env:
   TZ: Etc/UTC
@@ -204,6 +203,7 @@ jobs:
           ccache_clear: ${{ inputs.ccache_clear }}
           docker_hostpath: /builder
           docker_image: ophub/armbian-${{ inputs.docker_image }}:arm64
+          auto_patch: true  # <--- 手动加上这一行！
 
       - name: Upload Kernel to Release
         uses: ophub/upload-to-releases@main
