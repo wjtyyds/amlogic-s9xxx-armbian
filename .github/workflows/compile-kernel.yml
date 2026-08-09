@@ -13,11 +13,10 @@ on:
       kernel_source:
         description: "Select the kernel source"
         required: false
-        default: "ophub"
+        default: "unifreq"
         type: choice
         options:
           - unifreq
-          - ophub
       kernel_version:
         description: "Select kernel version"
         required: false
@@ -79,7 +78,7 @@ on:
       kernel_sign:
         description: "Set the kernel custom signature"
         required: false
-        default: "-ophub"
+        default: "-wjtyyds"
         type: choice
         options:
           - -wjtyyds
@@ -189,7 +188,7 @@ jobs:
             kernel-${{ inputs.kernel_toolchain }}-${{ matrix.kernel_version }}-
 
       - name: Compile the kernel [ ${{ matrix.kernel_version }} ]
-        uses: ophub/amlogic-s9xxx-armbian@main
+        uses: wjtyyds/amlogic-s9xxx-armbian@sonic
         if: ${{ steps.disk.outputs.status == 'success' && !cancelled() }}
         with:
           build_target: kernel
@@ -206,7 +205,7 @@ jobs:
           auto_patch: true  # <--- 手动加上这一行！
 
       - name: Upload Kernel to Release
-        uses: ophub/upload-to-releases@main
+        uses: wjtyyds/upload-to-releases@sonic
         if: ${{ env.PACKAGED_STATUS == 'success' && !cancelled() }}
         with:
           tag: kernel_stable
