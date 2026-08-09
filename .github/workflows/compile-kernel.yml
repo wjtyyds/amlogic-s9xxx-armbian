@@ -205,7 +205,7 @@ jobs:
           auto_patch: true          # 告诉脚本：拿到补丁后，强制给我打上去
 
       - name: Upload Kernel to Release
-        uses: wjtyyds/upload-to-releases@sonic
+        uses: ophub/upload-to-releases@main
         if: ${{ env.PACKAGED_STATUS == 'success' && !cancelled() }}
         with:
           tag: kernel_stable
