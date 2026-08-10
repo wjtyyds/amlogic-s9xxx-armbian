@@ -137,7 +137,6 @@ NF_NAT_RANGE_FULLCONE flag and 3-tuple hash table.
 +	.destroy	= nft_fullcone_destroy,
 +	.dump		= nft_masq_dump,
 +	.validate	= nft_fullcone_validate,
-+	.reduce		= NFT_REDUCE_READONLY,
 +};
 +
 +static struct nft_expr_type nft_fullcone_type __read_mostly = {
